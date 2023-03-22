@@ -29,14 +29,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Install the Angular CLI
-Run  npm install -g @angular/cli
+Run   `npm install -g @angular/cli `
 
 To install the Angular CLI, open a terminal window and run the following command:
-$ npm install -g @angular/cli
+Run  `npm install -g @angular/cli`
 
 On Windows client computers, the execution of PowerShell scripts is disabled by default. To allow the execution of PowerShell scripts, which is needed for npm global binaries, you must set the following
-$ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+ `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
 ## create component
 Run `ng generate component user`  
 ## Crate Service
-ng generate service hero
+`ng generate service hero`

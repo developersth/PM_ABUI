@@ -1,9 +1,9 @@
 import { Mongoose } from 'mongoose';
-import { UserSchema } from '../users/users.schema';
+import { UserSchema } from './users.schema';
 
-export const UserProviders = [
+export const usersProviders = [
   {
-    provide: 'USER',
+    provide: 'USER_MODEL',
     useFactory: (mongoose: Mongoose) => mongoose.model('User', UserSchema),
     inject: ['DATABASE_CONNECTION'],
   },

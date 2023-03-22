@@ -42,11 +42,11 @@ export class UserLoginComponent implements OnInit {
     this.userService.logIn(username,password).subscribe(data =>{
     
       this.data = data;
-      if(this.data.success){
-        console.log(this.data.user.token)
+      if(this.data){
+        console.log(this.data.access_token)
       }
       else{
-        //
+        console.log("error")
       }
   });
 }

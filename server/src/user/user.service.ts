@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User, UserDocument } from '../schema/user.schema';
+import { User } from '../model/user.model';
 @Injectable()
 export class UserService {
   constructor(@InjectModel(User.name) private readonly  userModel: Model<User>) {}
@@ -17,6 +17,9 @@ export class UserService {
 
   async getUserById(userId: string): Promise<User> {
     return this.userModel.findById(userId).exec();
+  }
+  async getUserByUserName(userName: string): Promise<User> {
+    return this.userModel.findOne({ usernam: userName }).exec();
   }
 
   async updateUser(userId: string, user: User): Promise<User> {

@@ -8,7 +8,7 @@ import { Token } from '@angular/compiler';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3000/api/users';
+  private apiUrl = 'http://localhost:3000/api';
   public user: Observable<User | null>;
 
   constructor(private http: HttpClient) { }
@@ -33,6 +33,6 @@ export class UserService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
   logIn(username: string,password: string) {
-    return this.http.post(this.apiUrl+'/login', {username,password});
+    return this.http.post(this.apiUrl+'/auth/login', {username,password});
   }
 }

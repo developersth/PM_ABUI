@@ -1,46 +1,36 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import {TableModule} from 'primeng/table';
-import {MenubarModule} from 'primeng/menubar';
-import {DialogModule} from 'primeng/dialog';
-import {ButtonModule} from 'primeng/button';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserDetailsComponent } from './user/user-details/user-details.component';
-import { UserFormComponent } from './user/user-form/user-form.component';
-import { UserListComponent } from './user/user-list/user-list.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+
+import { CarService } from './shared/services/carservice';
+import { CountryService } from './shared/services/countryservice';
+import { EventService } from './shared/services/eventservice';
+import { NodeService } from './shared/services/nodeservice';
+
+import { AppConfigService } from './shared/services/appconfigservice';
+import { CustomerService } from './shared/services/customerservice';
+import { IconService } from './shared/services/iconservice';
+import { PhotoService } from './shared/services/photoservice';
+import { ProductService } from './shared/services/productservice';
+
+import { LandingModule } from './shared/pages/landing/landing.module';
+import { AppMainComponent } from './app.main.component';
+import { AppConfigModule } from './shared/config/app.config.module';
+import { AppFooterComponent } from './shared/layout/footer/app.footer.component';
+import { AppMenuModule } from './shared/layout/menu/app.menu.module';
+import { AppNewsModule } from './shared/layout/news/app.news.module';
+import { AppTopbarModule } from './shared/layout/topbar/app.topbar.module';
 import {InputTextModule} from 'primeng/inputtext';
-import { MainHeaderComponent } from './layouts/main-header/main-header.component';
-import { MainSidebarComponent } from './layouts/main-sidebar/main-sidebar.component';
-import { MainFooterComponent } from './layouts/main-footer/main-footer.component';
-import { UserLoginComponent } from './user/user-login/user-login.component';
+import {TableModule} from 'primeng/table';
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserDetailsComponent,
-    UserFormComponent,
-    UserListComponent,
-    MainHeaderComponent,
-    MainSidebarComponent,
-    MainFooterComponent,
-    UserLoginComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    InputTextModule,
-    FormsModule,
-    TableModule,
-    MenubarModule,
-    DialogModule,
-    ButtonModule,
-    BrowserAnimationsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, AppFooterComponent, AppMainComponent],
+    imports: [TableModule,InputTextModule,FormsModule, ReactiveFormsModule, AppRoutingModule, AppNewsModule, HttpClientModule, BrowserAnimationsModule, LandingModule, AppConfigModule, AppTopbarModule, AppMenuModule],
+    providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }, CarService, CountryService, EventService, NodeService, IconService, CustomerService, PhotoService, AppConfigService, ProductService],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
